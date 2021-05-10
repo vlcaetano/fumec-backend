@@ -20,6 +20,7 @@ public class SerieListener implements ServletContextListener, HttpSessionListene
 		
 		session.setAttribute("acertos", 0);
 		session.setAttribute("erros", 0);
+		session.setAttribute("resposta", "");
     }
     
     public void sessionDestroyed(HttpSessionEvent se)  {
