@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
+  <display-name>Lab06</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  <servlet>
+    <description></description>
+    <display-name>MontyServlet</display-name>
+    <servlet-name>MontyServlet</servlet-name>
+    <servlet-class>MontyServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>MontyServlet</servlet-name>
+    <url-pattern>/monty</url-pattern>
+  </servlet-mapping>
+  <listener>
+    <listener-class>MontyListener</listener-class>
+  </listener>
+  <filter>
+    <display-name>MontyFilter</display-name>
+    <filter-name>MontyFilter</filter-name>
+    <filter-class>MontyFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>MontyFilter</filter-name>
+    <servlet-name>MontyServlet</servlet-name>
+  </filter-mapping>
+</web-app>
