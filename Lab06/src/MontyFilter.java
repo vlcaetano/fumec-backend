@@ -1,5 +1,7 @@
 
 import java.io.IOException;
+import java.io.PrintWriter;
+
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
 import javax.servlet.FilterConfig;
@@ -20,6 +22,9 @@ public class MontyFilter implements Filter {
 
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
 			throws IOException, ServletException {
+		
+		chain.doFilter(request, response);
+		
 		HttpSession session = ((HttpServletRequest) request).getSession();
 		int pontuacao = (Integer) session.getAttribute("pontuacao");
 		
@@ -27,11 +32,16 @@ public class MontyFilter implements Filter {
 		int pontuacaoMaxima = (Integer) context.getAttribute("pontuacaoMaxima");
 		
 		if (pontuacao > pontuacaoMaxima) {
-			context.setAttribute("pontuacaoMaxima", pontuacao);
+			pontuacaoMaxima = pontuacao;
+			context.setAttribute("pontuacaoMaxima", pontuacaoMaxima);
 		}
 		
-		chain.doFilter(request, response);
+		PrintWriter out = response.getWriter();
+		
+		out.println("<br><br>Pontuação Máxima: " + pontuacaoMaxima);
+		out.println("</body></html>");
 
+		out.close();
 	}
 
 	public void init(FilterConfig fConfig) throws ServletException {

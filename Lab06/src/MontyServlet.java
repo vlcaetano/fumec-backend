@@ -3,7 +3,6 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Random;
 
-import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -95,8 +94,8 @@ public class MontyServlet extends HttpServlet {
 		int portaAberta = (Integer) session.getAttribute("portaAberta");
 		int pontuacao = (Integer) session.getAttribute("pontuacao");
 		
-		ServletContext context = request.getServletContext();
-		int pontuacaoMaxima = (Integer) context.getAttribute("pontuacaoMaxima");
+//		ServletContext context = request.getServletContext();
+//		int pontuacaoMaxima = (Integer) context.getAttribute("pontuacaoMaxima");
 		
 		String portas = "";
 		for (int i = 1; i <= 3; i++) {
@@ -122,9 +121,9 @@ public class MontyServlet extends HttpServlet {
 		out.println("<br><br>" + resposta);
 		out.println("<br><br>Pontuação: " + pontuacao);
 		out.println("<br> <a href='/lab06/monty'>Reiniciar</a>");
-		out.println("<br><br>Pontuação Máxima: " + pontuacaoMaxima);
-		out.println("</body></html>");
-
-		out.close();
+//		out.println("<br><br>Pontuação Máxima: " + pontuacaoMaxima);
+//		out.println("</body></html>");
+//
+//		out.close();
 	}
 }
