@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
+  <display-name>ProvaAntigaJspPrj</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  <servlet>
+    <description></description>
+    <display-name>DataServlet</display-name>
+    <servlet-name>DataServlet</servlet-name>
+    <servlet-class>DataServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DataServlet</servlet-name>
+    <url-pattern>/data</url-pattern>
+  </servlet-mapping>
+  <filter>
+    <display-name>DataFilter</display-name>
+    <filter-name>DataFilter</filter-name>
+    <filter-class>DataFilter</filter-class>
+    <init-param>
+      <description></description>
+      <param-name>limite</param-name>
+      <param-value>0.50</param-value>
+    </init-param>
+  </filter>
+  <filter-mapping>
+    <filter-name>DataFilter</filter-name>
+    <servlet-name>DataServlet</servlet-name>
+  </filter-mapping>
+</web-app>
